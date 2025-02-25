@@ -1,5 +1,11 @@
 package ru.job4j.concurrent;
 
+/*
+Эта схема является шаблоном.
+Если используются методы sleep(), join(), wait()
+или аналогичные временно блокирующие поток методы,
+то нужно в блоке catch вызвать прерывание.
+ */
 public class ConsoleProgress implements Runnable {
 
     @Override
