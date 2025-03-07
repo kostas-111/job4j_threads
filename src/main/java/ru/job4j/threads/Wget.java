@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 
 /*
@@ -15,7 +12,6 @@ import java.nio.file.Files;
 Чтобы ограничить скорость скачивания, нужно засечь время скачивания 1024 байт.
 Если время меньше указанного, то нужно выставить паузу за счет Thread.sleep.
 Пауза должна вычисляться, а не быть константой.
-
 Чтобы загрузить параметры в программу в настройках запуска в IDEA укажите нужные данные, например:
 https://raw.githubusercontent.com/kostas-111/job4j_threads/refs/heads/main/pom.xml 1000
  */
