@@ -46,15 +46,14 @@ public class Wget implements Runnable {
                 if (howManyBytesRead >= speed) {
                     long timeToDownload = System.currentTimeMillis() - startTime;
                     if (timeToDownload < 1000) {
-                        long currentSpeed = (1024 * 1000000) / time;
-                        long pause = currentSpeed / speed;
-                        System.out.printf("Calculated pause = %d ms.\n", pause);
                         try {
-                            Thread.sleep(pause);
+                            Thread.sleep(1000 - timeToDownload);
                         } catch (InterruptedException e) {
                             throw new RuntimeException();
                         }
                     }
+                    startTime = System.currentTimeMillis();
+                    howManyBytesRead = 0;
                 }
                 System.out.println(Files.size(file.toPath()) + " bytes");
             }
