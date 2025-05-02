@@ -21,7 +21,7 @@ public class FileReader {
                 new InputStreamReader(new FileInputStream(file)))) {
             StringBuilder output = new StringBuilder();
             int data;
-            while ((data = reader.read()) > 0) {
+            while ((data = reader.read()) != -1) {
                 char ch = (char) data;
                 if (filter.test(ch)) {
                     output.append(ch);
