@@ -13,7 +13,6 @@ class SimpleBlockingQueueTest {
 		final int[] consumedCount = new int[1];
 		final int[] lastValue = new int[1];
 
-
 		/*
 		создаем потребителя (запустится и будет ждать)
 		 */
