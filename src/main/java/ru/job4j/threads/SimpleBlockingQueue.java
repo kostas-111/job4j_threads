@@ -1,0 +1,43 @@
+package ru.job4j.threads;
+
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+/*
+Реализация шаблона Producer Consumer
+ */
+@ThreadSafe
+public class SimpleBlockingQueue<T> {
+
+	@GuardedBy("this")
+	private Queue<T> queue = new LinkedList<>();
+
+	public synchronized void offer(T value) {
+		queue.offer(value);
+
+		/*
+		Будим все ожидающие потоки
+		 */
+		notifyAll();
+	}
+
+	public synchronized T poll() throws InterruptedException {
+		while (queue.isEmpty()) {
+
+			/*
+			Освобождаем монитор
+			 */
+			wait();
+		}
+		T result = queue.poll();
+
+		/*
+		Уведомляем производителей о свободном месте
+		 */
+		notifyAll();
+		return result;
+	}
+}
