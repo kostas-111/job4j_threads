@@ -15,7 +15,24 @@ public class SimpleBlockingQueue<T> {
 	@GuardedBy("this")
 	private Queue<T> queue = new LinkedList<>();
 
-	public synchronized void offer(T value) {
+	/*
+	Максимальный размер очереди
+	 */
+	private final int capacity;
+
+
+	public SimpleBlockingQueue(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public synchronized void offer(T value) throws InterruptedException {
+
+		/*
+		Ждем пока не появится свободное место
+		 */
+		while (queue.size() >= capacity) {
+			wait();
+		}
 		queue.offer(value);
 
 		/*

@@ -8,7 +8,7 @@ class SimpleBlockingQueueTest {
 	@Test
 	void producerConsumerWithJoin() throws InterruptedException {
 
-		SimpleBlockingQueue<Integer> queue = new SimpleBlockingQueue<>();
+		SimpleBlockingQueue<Integer> queue = new SimpleBlockingQueue<>(2);
 		final int[] producedCount = new int[1];
 		final int[] consumedCount = new int[1];
 		final int[] lastValue = new int[1];
