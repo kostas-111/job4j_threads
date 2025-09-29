@@ -1,6 +1,8 @@
 package ru.job4j.threads;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.threads.buffer.SimpleBlockingQueue;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SimpleBlockingQueueTest {

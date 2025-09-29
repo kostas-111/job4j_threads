@@ -1,4 +1,4 @@
-package ru.job4j.threads;
+package ru.job4j.threads.buffer;
 
 import net.jcip.annotations.GuardedBy;
 import net.jcip.annotations.ThreadSafe;
