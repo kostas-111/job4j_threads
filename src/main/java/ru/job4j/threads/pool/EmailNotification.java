@@ -8,7 +8,7 @@ public class EmailNotification {
   /*
   Создаем пул нитей по количеству доступных процессоров
    */
-  ExecutorService pool = Executors.newFixedThreadPool(
+  private final ExecutorService pool = Executors.newFixedThreadPool(
       Runtime.getRuntime().availableProcessors());
 
   public void emailTo(User user) {
@@ -20,12 +20,7 @@ public class EmailNotification {
     Через ExecutorService создаем задачу, которая будет создавать
     данные для пользователя и передавать их в метод send
      */
-    pool.submit(new Runnable() {
-      @Override
-      public void run() {
-        send(subject, body, user.getEmail());
-      }
-    });
+    pool.submit(() -> send(subject, body, user.getEmail()));
   }
 
   /*
