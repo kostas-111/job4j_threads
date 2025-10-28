@@ -1,4 +1,4 @@
-package ru.job4j.threads.pool;
+package ru.job4j.threads.pools.email;
 
 public class User {
 
