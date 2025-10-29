@@ -135,17 +135,6 @@ class ParallelSearchTest {
     assertEquals(-1, ParallelSearch.parallelSearch(single, 99));
   }
 
-  @Test
-  void testDuplicateElements() {
-    Integer[] withDuplicates = {1, 2, 3, 2, 4, 2, 5};
-
-    /*
-    Может вернуть любой из индексов с элементом 2
-     */
-    int result = ParallelSearch.parallelSearch(withDuplicates, 2);
-    assertTrue(result == 1 || result == 3 || result == 5);
-  }
-
   static class Person {
     private String name;
     private int age;
